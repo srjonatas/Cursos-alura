@@ -1,0 +1,60 @@
+<meta charset='UTF-8'>
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var raio = 20;
+	var xAleatorio;
+	var yAleatorio;
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+	
+	function sorteio(maximo){
+	
+		return Math.round(Math.random() * maximo);
+		
+	}
+	
+    function desenhaAlvo (x, y){
+	
+	desenhaCirculo(x, y, raio + 30 , 'red'); // maior círculo
+    desenhaCirculo(x, y, raio + 15 , 'white');
+	desenhaCirculo(x, y, raio, 'red'); // menor circulo
+	}
+	
+	function atualizaTela(){
+		pincel.clearRect(0,0,600,400);
+		xAleatorio = sorteio(570);
+		yAleatorio = sorteio(370);
+		desenhaAlvo(xAleatorio,yAleatorio);
+	}
+	
+	setInterval(atualizaTela, 1000);
+	
+	function dispara(evento){
+		
+		var x = evento.pageX;
+		var y = evento.pageY;
+		
+		
+		if ( (x > xAleatorio - raio) &&
+				(x < xAleatorio + raio) &&
+				(y > yAleatorio - raio) &&
+				(y < yAleatorio + raio) ){
+				alert ('acertô');
+		}
+	}
+	
+	tela.onclick = dispara;
+</script>

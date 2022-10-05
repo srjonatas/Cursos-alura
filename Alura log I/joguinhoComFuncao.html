@@ -1,0 +1,40 @@
+<meta charset= "UTF-8">
+
+<script>
+
+	function pulalinha() {
+		document.write("<br>");
+	}
+	
+	function mostra(texto) {
+		document.write(texto);
+		pulalinha();
+	}
+	
+	function sorteia(n) {
+	return Math.round(Math.random()*n);
+	}
+	
+	var numeroAleatorio = sorteia (5);
+	var tentativas = 1
+	
+	while (tentativas <=3){
+		var numeroDito = prompt("Tente acertar o número aleatório ")
+	
+		if (numeroAleatorio == numeroDito ) {
+		mostra ("Parabens, você acertou! ")
+		break;
+		} else {
+		mostra ("Que pena, você errou.")
+		tentativas++
+		}
+	
+		if (numeroDito > numeroAleatorio) {
+		mostra ("O número que você informou é maior que o pensado")
+		} else {
+		mostra ("O número que você informou é menor que o pensado")
+	}
+	}
+	
+	
+</script>	

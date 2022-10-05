@@ -1,0 +1,32 @@
+<meta charset= "UTF-8">
+
+<script>
+	function pulalinha() {
+	document.write("<br>");
+	}
+	
+	function mostra(texto) {
+	document.write(texto);
+	pulalinha();
+	}
+
+
+	var quantidade = parseInt(prompt("Digite a quantidade de numeros aleatórios "));
+	var numeroDito = parseInt(prompt("Diga um número aleatório"))
+	var numeroAleatorio = Math.round(Math.random()*quantidade);
+
+	
+	if (numeroAleatorio == numeroDito ) {
+	mostra ("Parabens, você acertou! ")
+	} else {
+	mostra ("Que pena, você errou, o número pensado foi " + numeroAleatorio)
+	}
+	
+	
+	
+
+
+
+
+
+</script>

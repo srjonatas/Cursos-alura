@@ -1,0 +1,30 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+	
+	pincel.fillStyle = 'green';
+	pincel.fillRect(0,0,600,400);
+
+	function desenhaCirculo(evento){
+		console.log(evento);
+			
+		var x = evento.pageX;
+		var y = evento.pageY;
+			
+		pincel.fillStyle = 'black';
+		pincel.beginPath();
+		pincel.arc(x,y,5,0,2*3.14);
+		pincel.fill();
+	}
+	
+	tela.onclick = desenhaCirculo;
+	
+
+
+
+
+
+
+</script> 
